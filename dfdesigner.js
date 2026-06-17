@@ -1219,7 +1219,7 @@ function drawChrome() {
 
     var menu_bar = Math.floor(viewport_width / tile_size) - menu_width_tiles;
 
-    viewport_chrome_drawcontext.clearRect(menu_bar * tile_size, 0, viewport_width, viewport_height);
+    viewport_chrome_drawcontext.clearRect(0, 0, viewport_width, viewport_height);
 
     // render a black background in the menu area
     viewport_chrome_drawcontext.fillStyle = "black";
