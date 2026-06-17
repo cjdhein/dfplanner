@@ -13,7 +13,7 @@ var map_background; // for bg1 and bg2 and bg3
 var map_temp; // for doing other things on maps, like tool preview
 
 // SETTINGS //
-var menu_width_tiles = 23; // makes the right side menu wider or smaller. its width is defined in a number of tiles (of size tile_size). You probably don't want to change this.
+var menu_width_tiles = 20; // makes the right side menu wider or smaller. its width is defined in a number of tiles (of size tile_size). You probably don't want to change this.
 // END OF SETTINGS //
 
 // tiles
