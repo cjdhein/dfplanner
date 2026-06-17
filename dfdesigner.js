@@ -1194,6 +1194,15 @@ function drawMenu() {
         viewport_menu_drawcontext.fillText("( " + tool.hotkey + " )", pos_x + ((menu_width_tiles * tile_size) - 100), pos_y + (text_line_height * n)); // paint hotkey of tool on the right side
     }
 
+    n += 1;
+    viewport_menu_drawcontext.fillStyle = text_font_color;
+    viewport_menu_drawcontext.fillText("Navigation", pos_x, pos_y + (text_line_height * n));
+    viewport_menu_drawcontext.fillText("( arrows )", pos_x + ((menu_width_tiles * tile_size) - 100), pos_y + (text_line_height * n));
+
+    n += 1;
+    viewport_menu_drawcontext.fillText("Z-level up/down", pos_x, pos_y + (text_line_height * n));
+    viewport_menu_drawcontext.fillText("( PgUp / PgDn , . )", pos_x + ((menu_width_tiles * tile_size) - 100), pos_y + (text_line_height * n));
+
     WTF.trace.leaveScope(scope_draw_ui_menu);
     /* END RENDER MENU */
 }
