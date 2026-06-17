@@ -1153,6 +1153,8 @@ function draw() {
     var textY = tile_size + 16;
     viewport_cursor_drawcontext.fillText(coordText, textX, textY);
 
+    drawMenu();
+    drawChrome();
 
     WTF.trace.leaveScope(scope_draw_ui);
     /* END RENDER UI */
@@ -1256,15 +1258,6 @@ function drawChrome() {
     for (y = 0; y < viewport_height_tiles; y += 1) {
         viewport_chrome_drawcontext.drawImage(images.chrome, menu_bar * 16, y * 16, tile_size, tile_size);
     }
-
-    // render current cursor coordinates in the top-right of the view area
-    viewport_chrome_drawcontext.font = text_font;
-    viewport_chrome_drawcontext.fillStyle = text_font_color_active;
-    var coordText = "(" + (cursor_x + 1) + ", " + (cursor_y + 1) + ")";
-    var textWidth = viewport_chrome_drawcontext.measureText(coordText).width;
-    var textX = (menu_bar * 16) - textWidth - 10;
-    var textY = tile_size + 16;
-    viewport_chrome_drawcontext.fillText(coordText, textX, textY);
 
     WTF.trace.leaveScope(scope_draw_ui_chrome);
     /* END RENDER CHROME */
