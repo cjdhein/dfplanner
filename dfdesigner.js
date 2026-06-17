@@ -911,6 +911,7 @@ function moveCursor(z, x, y, dont_move_camera) {
 
     requestDrawZlevel = true;
     requestDrawZlevelBackground = true;
+    requestDrawChrome = true;
 
     return true;
 }
