@@ -13,7 +13,7 @@ var map_background; // for bg1 and bg2 and bg3
 var map_temp; // for doing other things on maps, like tool preview
 
 // SETTINGS //
-var menu_width_tiles = 20; // makes the right side menu wider or smaller. its width is defined in a number of tiles (of size tile_size). You probably don't want to change this.
+var menu_width_tiles = 16; // makes the right side menu wider or smaller. its width is defined in a number of tiles (of size tile_size). You probably don't want to change this.
 // END OF SETTINGS //
 
 // tiles
@@ -1203,10 +1203,6 @@ function drawMenu() {
     viewport_menu_drawcontext.fillText("Z-level up/down", pos_x, pos_y + (text_line_height * n));
     viewport_menu_drawcontext.fillText("( PgUp / PgDn , . )", pos_x + ((menu_width_tiles * tile_size) - 100), pos_y + (text_line_height * n));
 
-    var status_y = viewport_height - 10;
-    viewport_menu_drawcontext.fillText("Z: " + (camera_z + 1), pos_x, status_y);
-    viewport_menu_drawcontext.fillText("Cursor: " + (cursor_x + 1) + "," + (cursor_y + 1), pos_x + ((menu_width_tiles * tile_size) - 160), status_y);
-
     WTF.trace.leaveScope(scope_draw_ui_menu);
     /* END RENDER MENU */
 }
@@ -1252,6 +1248,15 @@ function drawChrome() {
     for (y = 0; y < viewport_height_tiles; y += 1) {
         viewport_chrome_drawcontext.drawImage(images.chrome, menu_bar * 16, y * 16, tile_size, tile_size);
     }
+
+    // render current cursor coordinates in the top-right of the view area
+    viewport_chrome_drawcontext.font = text_font;
+    viewport_chrome_drawcontext.fillStyle = text_font_color_active;
+    var coordText = "(" + (cursor_x + 1) + ", " + (cursor_y + 1) + ")";
+    var textWidth = viewport_chrome_drawcontext.measureText(coordText).width;
+    var textX = (menu_bar * 16) - textWidth - 10;
+    var textY = tile_size + 16;
+    viewport_chrome_drawcontext.fillText(coordText, textX, textY);
 
     WTF.trace.leaveScope(scope_draw_ui_chrome);
     /* END RENDER CHROME */
