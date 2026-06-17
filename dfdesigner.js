@@ -1143,9 +1143,16 @@ function draw() {
 	// render cursor
 	viewport_cursor_drawcontext.drawImage(images.cursor, (cursor_x - camera_x + 1) * 16, (cursor_y - camera_y + 1) * 16, tile_size, tile_size);
 
-	drawMenu();
+    // render current cursor coordinates in the top-right of the view area
+    viewport_cursor_drawcontext.font = text_font;
+    viewport_cursor_drawcontext.fillStyle = text_font_color_active;
+    var coordText = "(" + (cursor_x + 1) + ", " + (cursor_y + 1) + ")";
+    var menu_bar = Math.floor(viewport_width / tile_size) - menu_width_tiles;
+    var textWidth = viewport_cursor_drawcontext.measureText(coordText).width;
+    var textX = (menu_bar * tile_size) - textWidth - 10;
+    var textY = tile_size + 16;
+    viewport_cursor_drawcontext.fillText(coordText, textX, textY);
 
-    drawChrome();
 
     WTF.trace.leaveScope(scope_draw_ui);
     /* END RENDER UI */
