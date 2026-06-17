@@ -1203,6 +1203,10 @@ function drawMenu() {
     viewport_menu_drawcontext.fillText("Z-level up/down", pos_x, pos_y + (text_line_height * n));
     viewport_menu_drawcontext.fillText("( PgUp / PgDn , . )", pos_x + ((menu_width_tiles * tile_size) - 100), pos_y + (text_line_height * n));
 
+    var status_y = viewport_height - 10;
+    viewport_menu_drawcontext.fillText("Z: " + (camera_z + 1), pos_x, status_y);
+    viewport_menu_drawcontext.fillText("Cursor: " + (cursor_x + 1) + "," + (cursor_y + 1), pos_x + ((menu_width_tiles * tile_size) - 160), status_y);
+
     WTF.trace.leaveScope(scope_draw_ui_menu);
     /* END RENDER MENU */
 }
